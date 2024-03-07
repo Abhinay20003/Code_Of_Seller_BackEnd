@@ -35,7 +35,7 @@ public class SellerRegistrationController {
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestParam String emailID, @RequestParam String password) {
     	 if (emailID.isEmpty() || password.isEmpty()) {
-    	        return new ResponseEntity<>("EmailID or Password cannot be empty", HttpStatus.BAD_REQUEST);
+    	        return new ResponseEntity<>("Email ID or Password can't be empty", HttpStatus.BAD_REQUEST);
     	    }
 
         boolean isValidLogin = sellerRegistrationService.validateLogin(emailID, password);
