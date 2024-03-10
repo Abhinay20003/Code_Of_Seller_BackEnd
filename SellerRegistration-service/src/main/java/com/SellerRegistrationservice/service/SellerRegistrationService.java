@@ -1,33 +1,13 @@
 package com.SellerRegistrationservice.service;
-import com.SellerRegistrationservice.model.SellerRegistration;
-import com.SellerRegistrationservice.repository.SellerRegistrationRepo;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.SellerRegistrationservice.dto.SellerRegistrationDTO;
 
-@Service
-public class SellerRegistrationService {
-	private final SellerRegistrationRepo sellerRegistrationRepo;
+public interface SellerRegistrationService {
+	SellerRegistrationDTO createSellerRegistration(SellerRegistrationDTO sellerRegistrationDTO);
 
-	@Autowired
-	public SellerRegistrationService(SellerRegistrationRepo sellerRegistrationRepo) {
-		this.sellerRegistrationRepo = sellerRegistrationRepo;
-	}
+	List<SellerRegistrationDTO> getAllSellerRegistrations();
 
-	public SellerRegistration createSellerRegistration(SellerRegistration sellerRegistration) {
-		return sellerRegistrationRepo.save(sellerRegistration);
-	}
-
-	public List<SellerRegistration> getAllSellerRegistrations() {
-		return sellerRegistrationRepo.findAll();
-	}
-	public boolean validateLogin(String emailID, String password) {
-	    SellerRegistration seller = sellerRegistrationRepo.findByEmailID(emailID);
-	    return seller != null && seller.getPassword().equals(password);
-	}
-
-
-
+	boolean validateLogin(String emailID, String password);
 }
