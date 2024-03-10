@@ -21,6 +21,5 @@ public class SellerRegistration {
 	private String companyAddress;
 	private Long phoneNumber;
 	private String password;
-  
 
 }
