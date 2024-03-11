@@ -26,7 +26,7 @@ public class SellerRegistrationController {
 		this.sellerRegistrationService = sellerRegistrationService;
 	}
 
-	@PostMapping("/postdetails")
+	@PostMapping("/register")
 	public ResponseEntity<SellerRegistrationDTO> createSellerRegistration(
 			@RequestBody SellerRegistrationDTO sellerRegistrationDTO) {
 		SellerRegistrationDTO createdSellerRegistrationDTO = sellerRegistrationService
@@ -34,7 +34,7 @@ public class SellerRegistrationController {
 		return new ResponseEntity<>(createdSellerRegistrationDTO, HttpStatus.CREATED);
 	}
 
-	@GetMapping("/getdetails")
+	@GetMapping("/registereddetails")
 	public ResponseEntity<List<SellerRegistrationDTO>> getAllSellerRegistrations() {
 		List<SellerRegistrationDTO> sellerRegistrationsDTO = sellerRegistrationService.getAllSellerRegistrations();
 		return new ResponseEntity<>(sellerRegistrationsDTO, HttpStatus.OK);
